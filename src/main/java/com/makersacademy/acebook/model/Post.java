@@ -1,12 +1,8 @@
 package com.makersacademy.acebook.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GenerationType;
-
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -23,5 +19,9 @@ public class Post {
 
     public Post(String content) {
         this.content = content;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 }
