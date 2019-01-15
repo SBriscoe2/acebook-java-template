@@ -1,5 +1,6 @@
 package com.makersacademy.acebook.controller;
 
+import com.makersacademy.acebook.model.Post;
 import com.makersacademy.acebook.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,4 +40,16 @@ public class HomeController {
 		return "age";
 	}
 
+	@GetMapping("/readPosts")
+	public String findAll(Model model) {
+		model.addAttribute("foo", postRepository.findAll());
+		model.addAttribute("count", postRepository.count());
+		Post post = new Post("Hello Peeps!");
+		model.addAttribute("greeting", post.getContent());
+		return "readPosts";
+
+	}
+
 }
+// add a get endpoint that renders an html file.
+//post class in model
