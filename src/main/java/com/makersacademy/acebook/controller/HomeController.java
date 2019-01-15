@@ -53,5 +53,12 @@ public class HomeController {
 		return "allposts";
 	}
 
-	
+	@GetMapping("/updatepost")
+	public String updatePost(Model model) {
+		model.addAttribute("singlepost", postRepository.findById(1l).get());
+		Post post = postRepository.findById(1l).get();
+		post.setContent("Please update for the love of all things good!!!");
+		postRepository.save(post);
+		return "updatepost";
+	}
 }
