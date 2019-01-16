@@ -29,4 +29,14 @@ public class Post {
         this.content = content;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+
+
 }

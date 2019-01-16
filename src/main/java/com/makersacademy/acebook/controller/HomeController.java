@@ -33,7 +33,7 @@ public class HomeController {
 
 	@GetMapping("/post")
 	public String post(Model model) {
-		model.addAttribute("post", new PostForm("change me"));
+		model.addAttribute("post", new PostForm("Add your message here"));
 		return "postForm";
 	}
 
@@ -42,7 +42,7 @@ public class HomeController {
 		System.out.println(post);
 		postRepository.save(post);
 		System.out.println(postRepository.findAll());
-		return "result";
+		return "redirect:/allposts";
 	}
 
 	//Create a new GET endpoint which lists all the posts
@@ -55,10 +55,18 @@ public class HomeController {
 
 	@GetMapping("/updatepost")
 	public String updatePost(Model model) {
-		model.addAttribute("singlepost", postRepository.findById(1l).get());
-		Post post = postRepository.findById(1l).get();
+		model.addAttribute("singlepost", postRepository.findById(2l).get());
+		Post post = postRepository.findById(2l).get();
 		post.setContent("Please update for the love of all things good!!!");
 		postRepository.save(post);
 		return "updatepost";
+	}
+
+	@GetMapping("/deletepost")
+	public String deletepost(Model model){
+		model.addAttribute("userid", postRepository.findById(2l).get());
+		Post post = postRepository.findById(2l).get();
+		postRepository.delete(post);
+		return "redirect:/allposts";
 	}
 }

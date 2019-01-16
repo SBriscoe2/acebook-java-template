@@ -3,10 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>PostList</title>
+    <style>
+        body {
+            background-image: url("https://www.pexels.com/photo/abstract-black-and-white-blur-book-261763/");
+        }
+    </style>
 </head>
 <body>
-  <th:block th:each="Msg : ${list}">
-      <p th:text= "${Msg.getContent()}"/>
-  </th:block>
+
+<ul>
+
+    <div>
+        <li>
+        <th:block th:each="Msg : ${list}">
+            <p th:text= "${Msg.getContent()}"/>
+        </th:block>
+
+    </div>
+
+    </li>
+</ul>
+
+  <br>
+    <a href="/updatepost">Update post</a>
+<br>
+    <a href="/post">Add a post</a>
+<br>
+    <a href="/deletepost">Delete post</a>
 </body>
 </html>
