@@ -5,7 +5,23 @@
     <title>PostList</title>
     <style>
         body {
-            background-image: url("https://www.pexels.com/photo/abstract-black-and-white-blur-book-261763/");
+            background-image: url("https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: lightgrey;
+            text-align: center;
+
+        }
+
+        div {
+            text-align: center;
+            background-color: lightgrey;
+            width: 300px;
+            border: 25px solid grey;
+            padding: 25px;
+            margin: 25px;
+            text-size: bold;
+
         }
     </style>
 </head>
@@ -13,15 +29,16 @@
 
 <ul>
 
-    <div>
-        <li>
+
         <th:block th:each="Msg : ${list}">
-            <p th:text= "${Msg.getContent()}"/>
+            <div>
+                <p th:text="${Msg.getTitle()}"/>
+                <p th:text= "${Msg.getContent()}"/>
+            </div>
         </th:block>
 
-    </div>
 
-    </li>
+
 </ul>
 
   <br>

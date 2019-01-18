@@ -33,7 +33,7 @@ public class HomeController {
 
 	@GetMapping("/post")
 	public String post(Model model) {
-		model.addAttribute("post", new PostForm("Add your message here"));
+		model.addAttribute("post", new PostForm("Add your message here: ", "Add the title of your post here: "));
 		return "postForm";
 	}
 
@@ -44,8 +44,6 @@ public class HomeController {
 		System.out.println(postRepository.findAll());
 		return "redirect:/allposts";
 	}
-
-	//Create a new GET endpoint which lists all the posts
 
 	@GetMapping("/allposts")
 	public String allposts(Model model) {
